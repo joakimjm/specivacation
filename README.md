@@ -1,4 +1,4 @@
-[![joakimjm MyGet Build Status](https://www.myget.org/BuildSource/Badge/joakimjm?identifier=f1e8fcb2-0cfa-4a8c-a4c2-75704bf3cda0)](https://www.myget.org/)
+[![MyGet Build Status](https://www.myget.org/BuildSource/Badge/joakimjm?identifier=f1e8fcb2-0cfa-4a8c-a4c2-75704bf3cda0 "Build status on MyGet")](https://www.myget.org/BuildSource/Badge/joakimjm?identifier=f1e8fcb2-0cfa-4a8c-a4c2-75704bf3cda0)
 
 # Specification pattern
 
