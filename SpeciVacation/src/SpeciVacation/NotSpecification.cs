@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Specification
+namespace SpeciVacation
 {
     internal sealed class NotSpecification<T> : Specification<T>
     {

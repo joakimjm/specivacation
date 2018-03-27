@@ -1,4 +1,4 @@
-﻿namespace Specification
+﻿namespace SpeciVacation
 {
     public static class SpecificationExtensions
     {

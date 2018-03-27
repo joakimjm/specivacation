@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace Specification.Tests
+namespace SpeciVacation.Tests
 {
     public sealed class SpecificationTests
     {

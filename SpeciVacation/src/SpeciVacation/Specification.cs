@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Specification
+namespace SpeciVacation
 {
     public abstract class Specification<T> : ISpecification<T>
     {

@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using LinqKit;
 
-namespace Specification
+namespace SpeciVacation
 {
     internal sealed class OrSpecification<T> : Specification<T>
     {

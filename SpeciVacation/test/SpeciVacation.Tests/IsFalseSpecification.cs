@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Specification.Tests
+namespace SpeciVacation.Tests
 {
     public sealed class IsFalseSpecification : Specification<bool>
     {

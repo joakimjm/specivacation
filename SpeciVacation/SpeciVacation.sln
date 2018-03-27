@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specification", "src\Specification\Specification.csproj", "{F446CB2B-C4CF-4AA4-9597-7D333A2F4919}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeciVacation", "src\SpeciVacation\SpeciVacation.csproj", "{F446CB2B-C4CF-4AA4-9597-7D333A2F4919}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{250E9DBA-90EF-4082-94B1-178AB754CAFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7455C416-4B7C-4E64-9F09-920214B9DC3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specification.Tests", "test\Specification.Tests\Specification.Tests.csproj", "{5438B7B3-7134-4A28-9776-FF063428D154}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeciVacation.Tests", "test\SpeciVacation.Tests\SpeciVacation.Tests.csproj", "{5438B7B3-7134-4A28-9776-FF063428D154}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{8D444564-2E81-463F-8C16-2EAA7C5F94CD}"
 ProjectSection(SolutionItems) = preProject
