@@ -1,3 +1,5 @@
+[![joakimjm MyGet Build Status](https://www.myget.org/BuildSource/Badge/joakimjm?identifier=f1e8fcb2-0cfa-4a8c-a4c2-75704bf3cda0)](https://www.myget.org/)
+
 # Specification pattern
 
 An implementation of the specification pattern that is basically copy pasted code from two solutions:
