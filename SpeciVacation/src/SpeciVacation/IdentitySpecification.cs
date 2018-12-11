@@ -3,9 +3,14 @@ using System.Linq.Expressions;
 
 namespace SpeciVacation
 {
-    internal sealed class IdentitySpecification<T> : Specification<T>
+    internal struct IdentitySpecification<T> : ISpecification<T>
     {
-        public override Expression<Func<T, bool>> ToExpression()
+        public bool IsSatisfiedBy(T entity)
+        {
+            return true;
+        }
+
+        public Expression<Func<T, bool>> ToExpression()
         {
             return x => true;
         }

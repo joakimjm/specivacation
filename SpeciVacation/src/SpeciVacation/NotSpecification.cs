@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace SpeciVacation
 {
-    internal sealed class NotSpecification<T> : Specification<T>
+    internal struct NotSpecification<T> : ISpecification<T>
     {
         private readonly ISpecification<T> _specification;
 
@@ -13,12 +13,18 @@ namespace SpeciVacation
             _specification = specification;
         }
 
-        public override Expression<Func<T, bool>> ToExpression()
+        public bool IsSatisfiedBy(T entity)
+        {
+            return !_specification.IsSatisfiedBy(entity);
+        }
+
+        public Expression<Func<T, bool>> ToExpression()
         {
             var expression = _specification.ToExpression();
-            var notExpression = Expression.Not(expression.Body);
-
-            return Expression.Lambda<Func<T, bool>>(notExpression, expression.Parameters.Single());
+            return Expression.Lambda<Func<T, bool>>(
+                Expression.Not(expression.Body),
+                expression.Parameters.Single()
+            );
         }
     }
 }

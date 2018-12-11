@@ -4,7 +4,7 @@ using LinqKit;
 
 namespace SpeciVacation
 {
-    internal sealed class OrSpecification<T> : Specification<T>
+    internal struct OrSpecification<T> : ISpecification<T>
     {
         private readonly ISpecification<T> _left;
         private readonly ISpecification<T> _right;
@@ -15,7 +15,12 @@ namespace SpeciVacation
             _left = left;
         }
 
-        public override Expression<Func<T, bool>> ToExpression()
+        public bool IsSatisfiedBy(T entity)
+        {
+            return _left.IsSatisfiedBy(entity) || _right.IsSatisfiedBy(entity);
+        }
+
+        public Expression<Func<T, bool>> ToExpression()
         {
             return _left.ToExpression().Or(_right.ToExpression());
         }

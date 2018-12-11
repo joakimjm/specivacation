@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace SpeciVacation.Tests
@@ -30,6 +29,7 @@ namespace SpeciVacation.Tests
 
             // Assert
             Assert.False(target.IsSatisfiedBy(true));
+            Assert.False(target.ToExpression().Compile()(true));
         }
 
         [Fact]
@@ -57,6 +57,7 @@ namespace SpeciVacation.Tests
 
             // Assert
             Assert.True(target.IsSatisfiedBy(true));
+            Assert.True(target.ToExpression().Compile()(true));
         }
 
         [Fact]
@@ -70,6 +71,7 @@ namespace SpeciVacation.Tests
 
             // Assert
             Assert.True(target.IsSatisfiedBy(true));
+            Assert.True(target.ToExpression().Compile()(true));
         }
     }
 }
