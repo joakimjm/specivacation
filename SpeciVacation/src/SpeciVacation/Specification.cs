@@ -13,6 +13,7 @@ namespace SpeciVacation
     public abstract class Specification<T> : ISpecification<T>
     {
         public static readonly ISpecification<T> All = new IdentitySpecification<T>();
+        public static readonly ISpecification<T> None = All.Not();
         private Func<T, bool> _predicate;
 
         public bool IsSatisfiedBy(T entity)
