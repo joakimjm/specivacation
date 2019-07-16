@@ -18,6 +18,21 @@ namespace SpeciVacation.Tests
         }
 
         [Fact]
+        public void TEST_And_GIVEN_NoneSpecification_EXPECT_ToNotSatisfy()
+        {
+            // Arrange
+            var none = Specification<bool>.None;
+            var isTrueSpec = new IsTrueSpecification();
+
+            // Act
+            // Assert
+            Assert.False(none.And(isTrueSpec).IsSatisfiedBy(true));
+            Assert.False(isTrueSpec.And(none).IsSatisfiedBy(true));
+            Assert.False(none.And(isTrueSpec).IsSatisfiedBy(false));
+            Assert.False(isTrueSpec.And(none).IsSatisfiedBy(false));
+        }
+
+        [Fact]
         public void TEST_And_GIVEN_TwoSpecifications_EXPECT_ToCombine()
         {
             // Arrange
@@ -43,6 +58,21 @@ namespace SpeciVacation.Tests
             // Assert
             Assert.Same(all.Or(isFalseSpec), all);
             Assert.Same(isFalseSpec.Or(all), all);
+        }
+
+        [Fact]
+        public void TEST_Or_GIVEN_NoneSpecification_EXPECT_IsSatisfiedByOther()
+        {
+            // Arrange
+            var none = Specification<bool>.None;
+            var isTrueSpec = new IsTrueSpecification();
+
+            // Act
+            // Assert
+            Assert.Equal(none.Or(isTrueSpec).IsSatisfiedBy(true), isTrueSpec.IsSatisfiedBy(true));
+            Assert.Equal(isTrueSpec.Or(none).IsSatisfiedBy(true), isTrueSpec.IsSatisfiedBy(true));
+            Assert.Equal(none.Or(isTrueSpec).IsSatisfiedBy(false), isTrueSpec.IsSatisfiedBy(false));
+            Assert.Equal(isTrueSpec.Or(none).IsSatisfiedBy(false), isTrueSpec.IsSatisfiedBy(false));
         }
 
         [Fact]
