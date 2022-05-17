@@ -1,0 +1,18 @@
+name: publish to nuget
+on:
+  push:
+    branches:
+      - main # Default release branch, may also be named 'master' or 'develop'
+jobs:
+  publish:
+    name: build, pack & publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: publish on version change
+        id: publish_nuget
+        uses: rohith/publish-nuget@v2
+        with:
+          PROJECT_FILE_PATH: SpeciVacation/src/SpeciVacation.csproj
+          BUILD_CONFIGURATION: Release
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
