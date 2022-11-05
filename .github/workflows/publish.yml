@@ -9,16 +9,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v1
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore SpeciVacation
       - name: Build
-        run: dotnet build -c Release SpeciVacation
+        run: dotnet build --no-restore SpeciVacation
       - name: Test
-        run: dotnet test -c Release --no-build SpeciVacation
+        run: dotnet test --no-build --verbosity normal  SpeciVacation
       - name: Pack nugets
         run: dotnet pack -c Release --no-build --output . SpeciVacation
       - name: Push to NuGet
