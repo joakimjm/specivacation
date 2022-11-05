@@ -1,18 +1,21 @@
-name: publish to nuget
 on:
-  push:
-    branches:
-      - main # Default release branch, may also be named 'master' or 'develop'
+  release:
+    types: [published]
+
 jobs:
-  publish:
-    name: build, pack & publish
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v2
-      - name: publish on version change
-        id: publish_nuget
-        uses: rohith/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: SpeciVacation/src/SpeciVacation.csproj
-          BUILD_CONFIGURATION: Release
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+      - name: Build
+        run: dotnet build -c Release SpeciVacation
+      - name: Test
+        run: dotnet test -c Release --no-build SpeciVacation
+      - name: Pack nugets
+        run: dotnet pack -c Release --no-build --output . SpeciVacation
+      - name: Push to NuGet
+        run: dotnet nuget push "*.nupkg" --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
