@@ -2,9 +2,11 @@ name: Publish nuget package
 
 on:
   release:
-    types: [published]
-    branches:
-      - master
+    types: 
+    - published
+    branches: 
+    - master
+  
 
 jobs:
   build:
